@@ -1,76 +1,111 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<!-- home screen app 全屏 -->
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<!-- 状态栏 -->
-		<link rel="stylesheet" href="css/mui.min.css">
-		<style>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- home screen app 全屏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 状态栏 -->
+    <link rel="stylesheet" href="css/mui.min.css">
+    <style>
 			.mui-bar {
 				background-color: #1B82FB;
 			}
-			
+
 			.mui-title {
 				color: #FFFFFF;
 			}
-			
+
 			.btnStyle {
 				height: 60px;
 				font-size: x-large;
 				font-weight: 900;
+				color: #5CACEE;
+				width:45%;
+				margin:5px;
+				border-radius: 10px;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+
 			}
-			
+
 			.mui-content,
-			body {
-				background-color: #FFFFFF;
+			body{
+				background-color: #5CACEE;
 			}
-			
+
 			#startBtn {
 				border-radius: 10px;
 				width: 120px;
 				height: 35px;
 				margin: 5px;
 				border-color: #000000;
+				font-weight:bold;
 			}
-		</style>
-	</head>
+			.mui-card-footer {
+                color: #000000;
+            }
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">直男测试</h1>
-		</header>
 
-		<div class="mui-content">
-			<div class="mui-card">
-				<div class="mui-card-content" style="margin-left: 3%;margin-top: 5%;margin-bottom: 5%;text-align: center;">
-					<label id="questionText" style="font-size: large;"><span id="question" style="font-size: large;">测试你的直男癌等级</span></label>
-				</div>
-				<div class="mui-card-footer">
-					<label id="optionsText" style="font-size: medium;letter-spacing:2px;line-height: 23px;"><span id="options">直男癌虽然与直男只是有一字之差，但在表现形式上却是有着极大的差别。直男只是作为典型的异性恋男性的存在，而直男癌就是活在自己的世界观里，自以为是，不受女性待见的一个男性群体。而且直男癌的存在还不少，不知道你是不是其中之一呢!</span></label>
-				</div>
+    </style>
+</head>
 
-			</div>
-			<center>
+<body>
+<!--<header class="mui-bar mui-bar-nav">-->
+<!--<h1 class="mui-title">直男癌测试</h1>-->
+<!--</header>-->
 
-				<button id="startBtn" class="mui-btn" onclick="start()">Ready Go</button></center>
-			</center>
-			<div id="optionBtnArea" class="mui-card" style="display: none;">
-				<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-btn-block btnStyle" onclick="updateQuestion(this.value)" value="A">A</button>
-				<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-btn-block btnStyle" onclick="updateQuestion(this.value)" value="B">B</button>
-				<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-btn-block btnStyle" onclick="updateQuestion(this.value)" value="C">C</button>
-				<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-btn-block btnStyle" onclick="updateQuestion(this.value)" value="D">D</button>
-			</div>
+<div class="mui-content">
+    <div class="mui-card" style="position:relative;">
+        <div class="mui-card-content" style="margin-left: 3%;margin-top: 5%;margin-bottom: 5%;text-align: center;">
+            <label id="questionText" style="font-size: large;"><h2 id="question"
+                                                                   style="font-size: large;">测试你的直男癌等级</h2></label>
+        </div>
+        <div class="mui-card-footer">
 
-		</div>
+            <div id="optionsText" style="font-size: medium;letter-spacing:4px;line-height: 23px;margin: 0 auto;">
+                <span id="options">
+                    <img src="img/straightman.jpg" style="width:100%;"/>
+                    直男癌虽然与直男只是有一字之差，但在表现形式上却是有着极大的差别。
+                    直男只是作为典型的异性恋男性的存在，而直男癌就是活在自己的世界观里，自以为是，不受女性待见的一个男性群体。
+                    而且直男癌的存在还不少，不知道你是不是其中之一呢!
+                </span>
+            </div>
 
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/data.js"></script>
-		<script>
+        </div>
+
+    </div>
+    <center>
+
+        <button id="startBtn" class="mui-btn" onclick="start()">Ready Go</button>
+    </center>
+    </center>
+    <div id="optionBtnArea" style="display: none;text-align:center;background-color: #5CACEE;">
+        <div style="width:100%">
+            <button type="button" class="mui-btn  btnStyle"
+                    onclick="updateQuestion(this.value)" value="A">A
+            </button>
+            <button type="button" class="mui-btn  btnStyle"
+                    onclick="updateQuestion(this.value)" value="B">B
+            </button>
+        </div>
+        <div style="width:100%">
+            <button type="button" class="mui-btn  btnStyle"
+                    onclick="updateQuestion(this.value)" value="C">C
+            </button>
+            <button type="button" class="mui-btn   btnStyle"
+                    onclick="updateQuestion(this.value)" value="D">D
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script>
 			var counter = 0;
 			var totalPoint = 0;
 
@@ -91,9 +126,9 @@
 						options[counter]
 					)
 					if(answers[counter-1] == value) {
-					
+
 						totalPoint += 10;
-					
+
 					}
 
 					counter++;
@@ -124,18 +159,10 @@
 				}
 
 			}
-//
-//			function addPoint(value) {
-//				
-//				if(answers[counter] == value) {
-//					
-//					totalPoint += 10;
-//					
-//				}
-//				updateQuestion();
-//
-//			}
-		</script>
-	</body>
+
+
+
+</script>
+</body>
 
 </html>
